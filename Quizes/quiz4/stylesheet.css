@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family: 'Fjalla One', "Segoe", "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	background: url(../../images/bg.jpg);
+    background-size : cover;
+    background-repeat : no-repeat;
+}
+
+.content {
+	background-color: #eee;
+	width: 75%;
+	max-width: 800px;
+	min-height: 170px;
+	box-shadow: 5px 5px 9px #333;
+    margin : auto;
+    padding : 20px;
+}
+
+#quiz {
+    display:none;
+	margin-top: 50px;
+	font-size: x-large;
+    margin-right: auto;
+    margin-top:20%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 10px;
+	font-size: smaller;
+}
+
+input[type="radio"] {
+	margin-right: 15px;
+}
+button {
+    position: relative;
+    float: right;
+	margin-left: 5px;
+	margin-top: 15px;
+    box-shadow: grey 1px 1px 1px 1px;
+    background-color: rgb(68, 199, 103);
+    border-radius: 19px;
+    border: 1px solid rgb(24, 171, 41);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    padding: 10px 31px;
+    text-decoration: none;
+    text-shadow: rgb(47, 102, 39) 0px 1px 0px;
+    font-weight: bold;
+}
+
+
+
+#start {
+    display:none;
+    width: 90px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding:.6em 1em;
+    background: whitesmoke;
+    color: yellowgreen;
+    text-decoration: none;
+}
+
+#warning {
+	color: red;
+	font-weight: bold;
+	margin-top: 25px;
+}
+
+@media(max-width: 767px){
+	#start {
+		margin-left: 25px;
+	}
+}
+.countdown{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color:aquamarine;
+}
+
+#home, .skip{
+    font-size: 15px;
+    position: fixed;
+    bottom: 1.2em;
+    right: 1.2em;
+    color: yellowgreen;
+    text-decoration: none;
+
+}
+#skip{
+    right: 2.4em;  
+}
+#prev {
+    display:none;
+    right: 3.6em;
+
+}

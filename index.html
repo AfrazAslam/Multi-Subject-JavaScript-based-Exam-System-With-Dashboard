@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+<!-- Scripts required for functions to work -->
+      <script src="assets/js/jquery.js"></script>
+      <script src="assets/js/jquery-1.8.3.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/jquery.scrollTo.min.js"></script>
+      <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+
+      <script src="assets/js/jquery.sparkline.js"></script>
+
+
+
+
+    <title>IFMA</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/stylet.css">
+    <script src="assets/js/chart-master/Chart.js"></script>
+    <script  src="assets/js/index.js"></script>
+    <script src="assets/js/dash.js"></script>
+    <script type="text/javascript" src="assets/js/result.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <script>
+
+
+
+  </script>
+  <body>
+    <div class="loginoverlay" id="overlay">
+      <style>
+          body{
+              width: 100%;
+              height: 100%;
+          }
+          .login{
+              margin-top: 15em;
+              padding: 40px;
+              width:30em;
+          }
+          input{
+            padding: 0.7em 3em;
+            margin: .3em 4em;
+            border-radius: 10px;
+            border: 1px green solid;
+          }
+          .ovrlaybutton{
+              border: 1px green solid;
+              margin : 1em 1.5em;
+              padding: .5em 2em;
+              background-color: white;
+              border-radius: 5px;
+              margin-left: 8.5em;
+          }
+          #overlay {
+            position: fixed; /* Sit on top of the page content */
+            display: none; /* Hidden by default */
+            width: 100%; /* Full width (cover the whole page) */
+            height: 100%; /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #2b5876;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* gradient background */
+            z-index: 1005; /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer; /* Add a pointer on hover */
+          }
+          .resultbutton{
+              position: absolute;
+              right: 2em;
+              bottom: 2em;
+              padding: 5px 10px;
+              border: 1px solid red;
+              background-color: white;
+              color: black;
+          }
+          .fail{
+              background-color: rgba(255, 70, 70, 0.4);
+          }
+      </style>
+      <div class="left_half">
+
+      </div>
+      <div class="right_half">
+
+          <div class="login">
+              <div class="img">
+                  <h2>Welcome! </h2><br><h4> Please Enter Your Name To Continue</h4>
+              </div>
+              <form>
+                  <input id="stdname" style="color:black" type="text" name="" placeholder="Enter first name">
+                  <button style="color:black;" class="ovrlaybutton" type="button" name="button" onclick="logincheck()">Login</button>
+              </form>
+          </div>
+    </div>
+    </div>
+<!-- Result Overlay-->
+  <div class="loginoverlay" id="resultoverlay">
+    <section class="resover">
+    <!--for demo wrap-->
+    <h1>Results</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Band 1</th>
+            <th>Band 2</th>
+            <th>Band 3</th>
+            <th>Band 4</th>
+            <th>Fail</th>
+          </thead>
+          </tr>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <br>
+          <br>
+          <br>
+          <tr>
+            <td id="quiz11">-</td>
+            <td id="quiz12">- </td>
+            <td id="quiz13">-</td>
+            <td id="quiz14">-</td>
+            <td class="fail" id="fail1">-</td>
+          </tr>
+          <tr>
+            <td id="quiz21">-</td>
+            <td id="quiz22">- </td>
+            <td id="quiz23">-</td>
+            <td id="quiz24">-</td>
+              <td class="fail" id="fail2">-</td>
+          </tr>
+          <tr>
+            <td id="quiz31">-</td>
+            <td id="quiz32">- </td>
+            <td id="quiz33">-</td>
+            <td id="quiz34">-</td>
+            <td class="fail" id="fail3">-</td>
+          </tr>
+          <tr>
+            <td id="quiz41">-</td>
+            <td id="quiz42">-</td>
+            <td id="quiz43">-</td>
+            <td id="quiz44">-</td>
+            <td class="fail" id="fail4">-</td>
+          </tr>
+          <tr>
+            <td id="quiz51">-</td>
+            <td id="quiz52">-</td>
+            <td id="quiz53">-</td>
+            <td id="quiz54">-</td>
+            <td class="fail" id="fail5">-</td>
+          </tr>
+
+        </tbody>
+        <button style="color:black;" class="resultbutton" type="button" name="button" onclick="exitResult()">Click here to exit</button>
+      </table>
+    </div>
+  </section>
+
+
+</div>
+
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header style="width:100%;" class="header black-bg">
+          <!--logo start-->
+            <a href="index.html" class="logo"><b>IFMA EXAMS</b></a>
+            <!--logo end-->
+            <div class="nav notify-row" id="top_menu">
+            </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+                    <li><button class="logout" onclick="logout();">Logout</button></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+            <div class="row mt">
+            <!-- UserData -->
+              <div class="col-md-4 col-sm-4 mb">
+                <div class="white-panel pn">
+                  <div class="white-header">
+                    <h5>USER</h5>
+                  </div>
+                  <p style="margin: 0"><img src="assets/img/fr-11.jpg" class="img-circle" width="80"></p>
+                  <h4 id="title" style="color:black; text-align:center;"></h4>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="small mt"></p>
+                      <p>-</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="small mt">-</p>
+                      <p>-</p>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div><!-- /col-md-4-->
+
+
+              <div class="col-md-4 col-sm-4 mb">
+                <div class="white-panel pn">
+                  <div class="white-header">
+          <h5>Result</h5>
+                  </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-6 goleft">
+
+        </div>
+        <div class="col-sm-6 col-xs-6">
+
+        </div>
+                  </div>
+                  <div class="centered">
+                      <h3 id="resultstatus"> Result Pending</h3>
+                  </div>
+                  <button style="color:black; background-color:white; border-radius:10px; border: 1px lightgreen solid; padding : 5px 10px; margin-top:1.5em " onclick="Result()">click here to genrate result</button>
+                </div>
+              </div><!-- /col-md-4 -->
+
+  <div class="col-md-4 col-sm-4 mb">
+    <!-- White Chart -->
+
+    <div class="white-panel pn donut-chart">
+      <div class="white-header">
+<h5>Percentage</h5>
+      </div>
+<div class="goleft">
+<p style="color:black;"id="Percentage"><i>%</i></p>
+</div>
+
+<canvas  id="serverstatus01" height="120" width="120"></canvas>
+    </div><!--/grey-panel -->
+  </div><!-- /col-md-4 -->
+          </div><!-- /row -->
+
+
+
+              <div class="row">
+                  <div class="col-lg-12 main-chart">
+                      <h3 style="text-align:center;">Click on a module below to start</h3>
+                  	<div class="row mtbox">
+                  		<a href="Quizes/quiz1/quiz1.html"><div id="qnav" class="col-md-2 col-sm-2 col-md-offset-1 box0">
+                  			<div class="box1">
+					  			<h4 class="quiznav">Introduction to Financial Services And Products</h4>
+					  			<h3><span id="marksq1">0</span>/20</h3>
+                  			</div>
+                  		</div></a>
+                  <a href="Quizes/quiz2/quiz2.html"><div id="qnav" class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<h4 class="quiznav">Introduction to Mutual Funds</h4>
+					  			<h3><span id="marksq2">0</span>/30</h3>
+                  			</div>
+					  			    </div></a>
+                  		<a href="Quizes/quiz3/quiz3.html"><div id="qnav" class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+                          <h4 class="quiznav">Regulatory Framework</h4>
+					  			<h3><span id="marksq3">0</span>/10</h3>
+                </div>
+              </div></a>
+                  		<a href="Quizes/quiz4/quiz4.html"><div id="qnav" class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<h4 class="quiznav">Funds Features and Mechanics</h4>
+					  			<h3><span id="marksq4">0</span>/20</h3>
+                  			</div>
+                  		</div></a>
+                  		<a href="Quizes/quiz1/quiz5.html"><div id="qnav" class="col-md-2 col-sm-2 box0">
+                  			<div class="box1">
+					  			<h4 class="quiznav">Ethics, Disclosures and Best Practices</h4>
+					  			<h3><span id="marksq5">0</span>/20</h3>
+                  			</div>
+                  		</div></a>
+                  	</div><!-- /row mt -->
+                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
+
+    </div>
+          </section>
+      </section>
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+              &copy; 2018. All Rights Researved
+              <a href="index.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+
+<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="assets/js/common-scripts.js"></script>
+<!--script for this page-->
+<script src="assets/js/sparkline-chart.js"></script>
+
+  </body>
+</html>
